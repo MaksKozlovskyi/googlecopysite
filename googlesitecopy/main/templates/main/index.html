@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+</head>
+
+<body>
+
+    <div class="google-container">
+        <h1>Google</h1>
+        {% if user.is_authenticated %}
+        <span class="username">{{ user.username }}</span> {% endif %}
+
+        <form action="https://www.google.com/search" method="get" class="search-bar">
+            <input type="text" name="q" placeholder="Пошук в Google">
+            <div class="buttons">
+                <button type="submit">Пошук Google</button>
+            </div>
+        </form>
+
+        <div class="buttons">
+            <a href="{% url 'register' %}" class="register-button">Зареєструватися</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
